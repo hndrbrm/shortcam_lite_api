@@ -14,10 +14,8 @@ final class _FlatFieldCorrectionHttp implements FlatFieldCorrectionEndpoint {
 
   @override
   Future<void> fetch() async {
-    final client = ShortcamClient(
-      inner: _inner,
-    );
+    final client = ShortcamClient(inner: _inner);
     final uri = Uri.parse('device/ffc');
-    await client.getJson(uri);
+    await client.postJson(uri);
   }
 }

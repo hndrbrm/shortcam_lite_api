@@ -2,10 +2,10 @@
 // All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-part of 'restore_library.dart';
+part of 'set_unit_library.dart';
 
-final class _RestoreHttp implements RestoreEndpoint {
-  const _RestoreHttp({
+final class _SetUnitHttp implements SetUnitEndpoint {
+  const _SetUnitHttp({
     Client? inner,
   })
   : _inner = inner;
@@ -13,9 +13,9 @@ final class _RestoreHttp implements RestoreEndpoint {
   final Client? _inner;
 
   @override
-  Future<void> fetch() async {
+  Future<void> fetch(DeviceUnit deviceUnit) async {
     final client = ShortcamClient(inner: _inner);
-    final uri = Uri.parse('device/restore');
-    await client.postJson(uri);
+    final uri = Uri.parse('device/unit');
+    await client.postJson(uri, body: deviceUnit.toJson());
   }
 }

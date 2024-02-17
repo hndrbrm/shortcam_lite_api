@@ -14,10 +14,8 @@ final class _GuogaiCalibrateHttp implements GuogaiCalibrateEndpoint {
 
   @override
   Future<void> fetch() async {
-    final client = ShortcamClient(
-      inner: _inner,
-    );
+    final client = ShortcamClient(inner: _inner);
     final uri = Uri.parse('device/guogaiCalibrate');
-    await client.getJson(uri);
+    await client.postJson(uri);
   }
 }
