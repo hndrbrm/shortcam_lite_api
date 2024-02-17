@@ -14,4 +14,7 @@ final class ErrorResponseException implements Exception {
 
   final int code;
   final String message;
+
+  @override
+  String toString() => 'Error($code): $message';
 }

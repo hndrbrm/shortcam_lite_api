@@ -6,14 +6,14 @@ import 'package:shortcam_lite_api/shortcam_lite_api.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('iron_red', () async {
+  test('change1', () async {
     final paletteA = Palette.ironRed;
     await SetPaletteEndpoint().fetch(paletteA);
     final paletteB = await GetPaletteEndpoint().fetch();
     expect(paletteA == paletteB, true);
   });
 
-  test('rainbow', () async {
+  test('change2', () async {
     final paletteA = Palette.rainbow;
     await SetPaletteEndpoint().fetch(paletteA);
     final paletteB = await GetPaletteEndpoint().fetch();

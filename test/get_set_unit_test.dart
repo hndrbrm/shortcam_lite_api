@@ -8,7 +8,7 @@ import 'package:shortcam_lite_api/src/json/device_unit.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('kelvin_meter', () async {
+  test('change1', () async {
     final deviceUnitA = DeviceUnit(
       temperatureUnit: TemperatureUnit.kelvin,
       distanceUnit: DistanceUnit.meter,
@@ -18,7 +18,7 @@ void main() {
     expect(deviceUnitA == deviceUnitB , true);
   });
 
-  test('celsius_meter', () async {
+  test('change2', () async {
     final deviceUnitA = DeviceUnit(
       temperatureUnit: TemperatureUnit.celsius,
       distanceUnit: DistanceUnit.meter,
