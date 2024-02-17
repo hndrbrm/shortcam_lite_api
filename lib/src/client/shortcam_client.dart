@@ -15,13 +15,13 @@ import 'json_client.dart';
 base class ShortcamClient<T extends ToJson> {
   const ShortcamClient({
     Client? inner,
-    required T? Function(Map<String, dynamic>) dataParser,
+    required T? Function(Map<String, dynamic>)? dataParser,
   })
   : _inner = inner,
     _dataParser = dataParser;
 
   final Client? _inner;
-  final T? Function(Map<String, dynamic>) _dataParser;
+  final T? Function(Map<String, dynamic>)? _dataParser;
 
   static String _baseUrl = Config.baseUrlWifi;
 

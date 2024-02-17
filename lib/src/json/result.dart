@@ -27,11 +27,11 @@ final class Result<T extends ToJson> extends _Fields<T> with _Equality<T>, _ToJs
     super.data,
   });
 
-  Result.fromJson(Map<String, dynamic> json, T? Function(Map<String, dynamic>) dataParser)
+  Result.fromJson(Map<String, dynamic> json, T? Function(Map<String, dynamic>)? dataParser)
   : super(
     code: IntParser.parse(json['code']),
     message: StringParser.parse(json['msg']),
-    data: dataParser(json['data']),
+    data: json['data'] == null ? null : dataParser!.call(json['data']),
   );
 }
 

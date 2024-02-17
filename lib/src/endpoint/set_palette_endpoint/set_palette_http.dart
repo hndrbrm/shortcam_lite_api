@@ -2,10 +2,10 @@
 // All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-part of 'get_palette_library.dart';
+part of 'set_palette_library.dart';
 
-final class _GetPaletteHttp implements GetPaletteEndpoint {
-  const _GetPaletteHttp({
+final class _SetPaletteHttp implements SetPaletteEndpoint {
+  const _SetPaletteHttp({
     Client? inner,
   })
   : _inner = inner;
@@ -13,14 +13,14 @@ final class _GetPaletteHttp implements GetPaletteEndpoint {
   final Client? _inner;
 
   @override
-  Future<Palette> fetch() async {
-    final client = ShortcamClient<Palette>(
+  Future<void> fetch([ Palette? palette ]) async {
+    final newPalette = palette ?? Palette.rainbow;
+
+    final client = ShortcamClient(
       inner: _inner,
       dataParser: Palette.fromJson,
     );
     final uri = Uri.parse('device/palette');
-    final palette = await client.getJson(uri);
-
-    return palette!;
+    await client.postJson(uri, body: newPalette.toJson());
   }
 }
