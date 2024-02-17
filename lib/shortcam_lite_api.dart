@@ -3,6 +3,5 @@
 /// More dartdocs go here.
 library;
 
-export 'src/shortcam_lite_api_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/endpoint/endpoint.dart';
+export 'src/json/device_info.dart';
