@@ -8,10 +8,7 @@ import 'package:http/http.dart';
 
 import '../../client/mocked_client.dart';
 import '../../client/shortcam_client.dart';
-import '../../json/channel_rtsp.dart';
 
-export '../../json/channel_rtsp.dart' show ChannelRtsp;
-
-part 'channel_rtsp_endpoint.dart';
-part 'channel_rtsp_http.dart';
-part 'channel_rtsp_mock.dart';
+part 'flat_field_correction_endpoint.dart';
+part 'flat_field_correction_http.dart';
+part 'flat_field_correction_mock.dart';

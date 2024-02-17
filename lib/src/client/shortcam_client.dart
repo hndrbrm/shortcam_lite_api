@@ -15,7 +15,7 @@ import 'json_client.dart';
 base class ShortcamClient<T extends ToJson> {
   const ShortcamClient({
     Client? inner,
-    required T? Function(Map<String, dynamic>)? dataParser,
+    T? Function(Map<String, dynamic>)? dataParser,
   })
   : _inner = inner,
     _dataParser = dataParser;
