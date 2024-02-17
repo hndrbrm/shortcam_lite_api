@@ -21,5 +21,5 @@ abstract interface class DeviceInfoEndpoint {
     Client? inner,
   }) = _DeviceInfoFailedMock;
 
-  Future<Result<DeviceInfo>> fetch();
+  Future<DeviceInfo> fetch();
 }

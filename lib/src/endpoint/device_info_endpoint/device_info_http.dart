@@ -13,13 +13,14 @@ final class _DeviceInfoHttp implements DeviceInfoEndpoint {
   final Client? _inner;
 
   @override
-  Future<Result<DeviceInfo>> fetch() async {
-    final client = JsonClient(
+  Future<DeviceInfo> fetch() async {
+    final client = ShortcamClient<DeviceInfo>(
       inner: _inner,
+      dataParser: DeviceInfo.fromJson,
     );
     final uri = Uri.parse('device/info');
-    final Map<String, dynamic> json = await client.getJson(uri);
+    final deviceInfo = await client.getJson(uri);
 
-    return Result<DeviceInfo>.fromJson(json, DeviceInfo.fromJson);
+    return deviceInfo!;
   }
 }

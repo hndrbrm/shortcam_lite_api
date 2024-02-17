@@ -4,14 +4,11 @@
 
 library;
 
-// import 'dart:convert';
-
 import 'package:http/http.dart';
 
-import '../client/json_client.dart';
 import '../client/mocked_client.dart';
+import '../client/shortcam_client.dart';
 import '../json/device_info.dart';
-import '../json/result.dart';
 
 part 'device_info_endpoint/device_info_endpoint.dart';
 part 'device_info_endpoint/device_info_http.dart';

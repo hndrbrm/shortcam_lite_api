@@ -8,6 +8,6 @@ import 'package:test/test.dart';
 void main() {
   test('normal', () async {
     final deviceInfo = await DeviceInfoEndpoint().fetch();
-    expect(deviceInfo.code, 200);
+    expect(deviceInfo.name.isNotEmpty, true);
   });
 }

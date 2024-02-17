@@ -5,3 +5,13 @@
 final class RequestHasSchemaException implements Exception {}
 
 final class UnsupportedSendMethodException implements Exception {}
+
+final class ErrorResponseException implements Exception {
+  const ErrorResponseException({
+    required this.code,
+    required this.message,
+  });
+
+  final int code;
+  final String message;
+}
