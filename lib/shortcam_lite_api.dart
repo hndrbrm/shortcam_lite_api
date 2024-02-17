@@ -4,4 +4,3 @@
 library;
 
 export 'src/endpoint/endpoint.dart';
-export 'src/json/device_info.dart';

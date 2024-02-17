@@ -7,4 +7,5 @@ export 'device_info_endpoint/device_info_library.dart';
 export 'flat_field_correction_endpoint/flat_field_correction_library.dart';
 export 'get_palette_endpoint/get_palette_library.dart';
 export 'guogai_calibrate_endpoint/guogai_calibrate_library.dart';
+export 'restore_endpoint/restore_library.dart';
 export 'set_palette_endpoint/set_palette_library.dart';
