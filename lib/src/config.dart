@@ -8,6 +8,4 @@ final class Config {
   static const implementor = 'api/v1';
   static const baseUrlWifi = 'http://192.168.0.254/$implementor';
   static const baseUrlRndis = 'http://192.168.10.19/$implementor';
-
-  static const baseUrl = baseUrlWifi;
 }

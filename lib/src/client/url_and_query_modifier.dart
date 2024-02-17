@@ -4,7 +4,6 @@
 
 import 'package:http/http.dart';
 
-import '../config.dart';
 import '../shareable/http/proxy_client.dart';
 import 'exception.dart';
 
@@ -16,6 +15,7 @@ final class _BasedUrlRequest implements BaseRequest {
 
   factory _BasedUrlRequest.fromRequest({
     required BaseRequest request,
+    required String baseUrl,
   }) {
     if (request.url.hasScheme) {
       throw RequestHasSchemaException();
@@ -23,7 +23,7 @@ final class _BasedUrlRequest implements BaseRequest {
 
     return _BasedUrlRequest._(
       inner: request,
-      url: Uri.parse('${Config.baseUrl}/${request.url}'),
+      url: Uri.parse('$baseUrl/${request.url}'),
     );
   }
 
@@ -145,10 +145,12 @@ final class _QueriedUrlRequest implements BaseRequest {
 }
 
 base mixin UrlAndQueryModifier on ProxyClient {
+  String get baseUrl;
+
   @override
   Future<StreamedResponse> send(BaseRequest request) async {
     if (!request.url.hasScheme) {
-      request = _BasedUrlRequest.fromRequest(request: request);
+      request = _BasedUrlRequest.fromRequest(request: request, baseUrl: baseUrl);
       request = _QueriedUrlRequest.fromRequest(request);
     }
 
