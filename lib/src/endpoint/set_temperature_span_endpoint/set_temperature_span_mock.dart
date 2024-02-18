@@ -2,7 +2,7 @@
 // All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-part of 'set_gain_library.dart';
+part of 'set_temperature_span_library.dart';
 
 final class _SetTemperatureSpanSuccessMock extends _SetTemperatureSpanHttp {
   _SetTemperatureSpanSuccessMock({

@@ -8,10 +8,10 @@ import 'package:http/http.dart';
 
 import '../../client/mocked_client.dart';
 import '../../client/shortcam_client.dart';
-import '../../json/temperature_span.dart';
+import '../../json/temperature_span_ratio.dart';
 
-export '../../json/temperature_span.dart' show TemperatureSpan;
+export '../../json/temperature_span_ratio.dart' show TemperatureSpanRatio;
 
-part 'set_gain_endpoint.dart';
-part 'set_gain_http.dart';
-part 'set_gain_mock.dart';
+part 'set_temperature_span_ratio_endpoint.dart';
+part 'set_temperature_span_ratio_http.dart';
+part 'set_temperature_span_ratio_mock.dart';
