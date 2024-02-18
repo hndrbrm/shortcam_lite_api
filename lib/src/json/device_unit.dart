@@ -8,9 +8,6 @@ import '../shareable/json_mixin.dart';
 import 'distance_unit.dart';
 import 'temperature_unit.dart';
 
-export 'distance_unit.dart' show DistanceUnit;
-export 'temperature_unit.dart' show TemperatureUnit;
-
 @immutable
 abstract base class _Fields with ToJson, JsonToString {
   const _Fields({

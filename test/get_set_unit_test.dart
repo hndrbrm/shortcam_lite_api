@@ -3,8 +3,6 @@
 // by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:shortcam_lite_api/shortcam_lite_api.dart';
-import 'package:shortcam_lite_api/src/endpoint/set_unit_endpoint/set_unit_library.dart';
-import 'package:shortcam_lite_api/src/json/device_unit.dart';
 import 'package:test/test.dart';
 
 void main() {

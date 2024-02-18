@@ -8,12 +8,12 @@ import 'package:http/http.dart';
 
 import '../../client/mocked_client.dart';
 import '../../client/shortcam_client.dart';
-import '../../json/device_unit.dart';
+import '../../json/device_gain.dart';
 
-export '../../json/device_unit.dart' show DeviceUnit;
-export '../../json/distance_unit.dart' show DistanceUnit;
-export '../../json/temperature_unit.dart' show TemperatureUnit;
+export '../../json/device_gain.dart' show DeviceGain;
+export '../../json/gain_mode.dart' show GainMode;
+export '../../json/gain_type.dart' show GainType;
 
-part 'get_unit_endpoint.dart';
-part 'get_unit_http.dart';
-part 'get_unit_mock.dart';
+part 'get_gain_endpoint.dart';
+part 'get_gain_http.dart';
+part 'get_gain_mock.dart';
