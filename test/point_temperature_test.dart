@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('normal', () async {
-    final paramPackageCheck = await ParamPackageCheckEndpoint().fetch();
-    expect(paramPackageCheck.enable, true);
+    final temperature = await PointTemperatureEndpoint().fetch(x: 1, y: 1);
+    expect(temperature.temperature, isPositive);
   });
 }

@@ -11,6 +11,8 @@ export 'get_palette_endpoint/get_palette_library.dart';
 export 'get_unit_endpoint/get_unit_library.dart';
 export 'global_temperature_endpoint/global_temperature_library.dart';
 export 'guogai_calibrate_endpoint/guogai_calibrate_library.dart';
+export 'param_package_check_endpoint/param_package_check_library.dart';
+export 'point_temperature_endpoint/point_temperature_library.dart';
 export 'restore_endpoint/restore_library.dart';
 export 'set_calibrate_parameter_endpoint/set_calibrate_parameter_library.dart';
 export 'set_gain_endpoint/set_gain_library.dart';
