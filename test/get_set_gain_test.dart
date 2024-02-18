@@ -13,7 +13,6 @@ void main() {
     );
     await SetGainEndpoint().fetch(deviceGainA);
     final deviceGainB = await GetGainEndpoint().fetch();
-    print(deviceGainB);
     expect(deviceGainA == deviceGainB , true);
   });
 

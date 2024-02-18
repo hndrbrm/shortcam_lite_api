@@ -8,7 +8,6 @@ import 'package:test/test.dart';
 void main() {
   test('normal', () async {
     final globalTemperature = await GlobalTemperatureEndpoint().fetch();
-    print(globalTemperature);
     expect(globalTemperature.enable == null, true);
   });
 }
