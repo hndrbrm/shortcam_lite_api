@@ -26,3 +26,4 @@ export 'set_temperature_span_endpoint/set_temperature_span_library.dart';
 export 'set_temperature_span_ratio_endpoint/set_temperature_span_ratio_library.dart';
 export 'set_unit_endpoint/set_unit_library.dart';
 export 'set_zoom_region_endpoint/set_zoom_region_library.dart';
+export 'zoom_region_temperature_endpoint/zoom_region_temperature_library.dart';

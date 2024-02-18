@@ -39,8 +39,8 @@ final class BoxTemperature extends _Fields with _Equality, _ToJson {
     enable: BoolParser.tryParse(json['enable']),
     maximum: PointTemperature.fromJson(json['max']),
     minimum: PointTemperature.fromJson(json['min']),
-    center: DoubleParser.parse(json['center']['value']),
-    average: DoubleParser.parse(json['avg']['value']),
+    center: DoubleParser.tryParse(json['center']['value']),
+    average: DoubleParser.tryParse(json['avg']['value']),
   );
 }
 
