@@ -8,10 +8,10 @@ import 'package:http/http.dart';
 
 import '../../client/mocked_client.dart';
 import '../../client/shortcam_client.dart';
-import '../../json/palette.dart';
+import '../../json/param_package_check.dart';
 
-export '../../json/palette.dart' show Palette;
+export '../../json/param_package_check.dart' show ParamPackageCheck;
 
-part 'get_palette_endpoint.dart';
-part 'get_palette_http.dart';
-part 'get_palette_mock.dart';
+part 'param_package_check_endpoint.dart';
+part 'param_package_check_http.dart';
+part 'param_package_check_mock.dart';
