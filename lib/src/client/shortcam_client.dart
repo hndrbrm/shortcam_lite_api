@@ -2,6 +2,7 @@
 // All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart';
@@ -16,12 +17,15 @@ base class ShortcamClient<T extends ToJson> {
   const ShortcamClient({
     Client? inner,
     T? Function(Map<String, dynamic>)? dataParser,
+    Duration? timeout,
   })
   : _inner = inner,
-    _dataParser = dataParser;
+    _dataParser = dataParser,
+    _timeout = timeout ?? const Duration(seconds: 5);
 
   final Client? _inner;
   final T? Function(Map<String, dynamic>)? _dataParser;
+  final Duration _timeout;
 
   static String _baseUrl = Config.baseUrlWifi;
 
@@ -50,10 +54,14 @@ base class ShortcamClient<T extends ToJson> {
   Future<T?> getJson(Uri url, { Map<String, String>? headers }) async {
     Future<Map<String, dynamic>> internal() async {
       final jsonClient = JsonClient(inner: _inner, baseUrl: _baseUrl);
-      return await jsonClient.getJson(
-        url,
-        headers: headers,
-      );
+      try {
+        return await jsonClient
+          .getJson(url, headers: headers)
+          .timeout(_timeout);
+      } on TimeoutException {
+        jsonClient.close();
+        rethrow;
+      }
     }
     return _doubleCall(internal);
   }
@@ -66,12 +74,19 @@ base class ShortcamClient<T extends ToJson> {
   }) async {
     Future<Map<String, dynamic>> internal() async {
       final jsonClient = JsonClient(inner: _inner, baseUrl: _baseUrl);
-      return await jsonClient.postJson(
-        url,
-        headers: headers,
-        body: body,
-        encoding: encoding,
-      );
+      try {
+        return await jsonClient
+          .postJson(
+            url,
+            headers: headers,
+            body: body,
+            encoding: encoding,
+          )
+          .timeout(_timeout);
+      } on TimeoutException {
+        jsonClient.close();
+        rethrow;
+      }
     }
     return _doubleCall(internal);
   }
