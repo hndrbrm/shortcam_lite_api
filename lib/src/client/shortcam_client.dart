@@ -17,15 +17,12 @@ base class ShortcamClient<T extends ToJson> {
   const ShortcamClient({
     Client? inner,
     T? Function(Map<String, dynamic>)? dataParser,
-    Duration? timeout,
   })
   : _inner = inner,
-    _dataParser = dataParser,
-    _timeout = timeout ?? const Duration(seconds: 5);
+    _dataParser = dataParser;
 
   final Client? _inner;
   final T? Function(Map<String, dynamic>)? _dataParser;
-  final Duration _timeout;
 
   static String _baseUrl = Config.baseUrlWifi;
 
@@ -54,14 +51,7 @@ base class ShortcamClient<T extends ToJson> {
   Future<T?> getJson(Uri url, { Map<String, String>? headers }) async {
     Future<Map<String, dynamic>> internal() async {
       final jsonClient = JsonClient(inner: _inner, baseUrl: _baseUrl);
-      try {
-        return await jsonClient
-          .getJson(url, headers: headers)
-          .timeout(_timeout);
-      } on TimeoutException {
-        jsonClient.close();
-        rethrow;
-      }
+      return await jsonClient.getJson(url, headers: headers);
     }
     return _doubleCall(internal);
   }
@@ -74,19 +64,13 @@ base class ShortcamClient<T extends ToJson> {
   }) async {
     Future<Map<String, dynamic>> internal() async {
       final jsonClient = JsonClient(inner: _inner, baseUrl: _baseUrl);
-      try {
-        return await jsonClient
-          .postJson(
-            url,
-            headers: headers,
-            body: body,
-            encoding: encoding,
-          )
-          .timeout(_timeout);
-      } on TimeoutException {
-        jsonClient.close();
-        rethrow;
-      }
+      return await jsonClient
+        .postJson(
+          url,
+          headers: headers,
+          body: body,
+          encoding: encoding,
+        );
     }
     return _doubleCall(internal);
   }
