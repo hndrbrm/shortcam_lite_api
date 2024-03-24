@@ -153,7 +153,6 @@ base mixin UrlAndQueryModifier on ProxyClient {
       request = _BasedUrlRequest.fromRequest(request: request, baseUrl: baseUrl);
       request = _QueriedUrlRequest.fromRequest(request);
     }
-    print(request.url);
 
     return super.send(request);
   }
